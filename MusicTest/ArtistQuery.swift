@@ -25,15 +25,24 @@ class ArtistQuery {
 //        query.groupingType = MPMediaGrouping.AlbumArtist
         let items: [MPMediaItemCollection] = query.collections!
         
-        print("query: ", query)
-        
-        var title: String = ""
-        var aCount: Int
-        var sCount: Int
+        var title: String?
+        var aCount: Int? // albums
+        var sCount: Int // songs
         
         for artist in items {
-//            title = artist.valueForProperty(MPMediaItemPropertyArtist) as! String
-            print("artists: ", artist.representativeItem?.albumArtist)
+            title = artist.representativeItem?.albumArtist
+            print("title: ", title)
+            print("acount: ", aCount)
+//            let artist = artist.representativeItem?.albumArtist
+//            title = artist
+//            print("title: ", title)
+//            aCount = artist.
+//            aCount = (artist.valueForProperty(MPMediaItemPropertyAlbumTitle)?.count)!
+//            print("aCount: ", aCount)
+            
+            
+//            let artistInfo: ArtistInfo = ArtistInfo(artistTitle: title, albumsCount: <#T##Int#>, songsCount: <#T##Int#>)
+            
         }
     }
 }
