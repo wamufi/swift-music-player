@@ -18,7 +18,7 @@ class ArtistViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
 //        playlists = playlistQuery.get()
-        artistQuery.get()
+        artists = artistQuery.get()
         
     }
     
@@ -29,24 +29,24 @@ class ArtistViewController: UITableViewController {
     
     // MARK: - Table View
     
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return 1
-//    }
-//    
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return playlists.count
-//    }
-//    
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-//        cell.textLabel?.text = playlists[indexPath.row].playlistTitle
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return artists.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        cell.textLabel?.text = artists[indexPath.row].artistTitle
 //        cell.detailTextLabel?.text = String(playlists[indexPath.row].songsCount)+" Songs"
-//        
-//        return cell
-//    }
-//    
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        //
-//    }
+        
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //
+    }
 }
 
