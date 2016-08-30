@@ -17,7 +17,7 @@ class PlaylistViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        playlists = playlistQuery.get()
+        playlists = playlistQuery.getList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +44,7 @@ class PlaylistViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
+        playlistQuery.getPlaylistSongs(playlists[indexPath.row].playlistItemCollection)
     }
 }
 

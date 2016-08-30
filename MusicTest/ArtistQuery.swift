@@ -18,7 +18,6 @@ struct ArtistInfo {
 class ArtistQuery {
     
     func get() -> [ArtistInfo] {
-//    func get() {
         var artists: [ArtistInfo] = []
         
         let query: MPMediaQuery = MPMediaQuery.artistsQuery()

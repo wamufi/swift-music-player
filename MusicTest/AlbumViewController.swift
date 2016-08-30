@@ -1,28 +1,26 @@
 //
-//  ArtistViewController.swift
+//  AlbumViewController.swift
 //  MusicTest
 //
-//  Created by Hyunjin Kim on 08/08/16.
+//  Created by Hyunjin Kim on 08/26/16.
 //  Copyright © 2016 Hyunjin Kim. All rights reserved.
 //
 
 import UIKit
 
-class ArtistViewController: UITableViewController {
+class AlbumViewController: UITableViewController {
     
-    var artists: [ArtistInfo] = []
-    var artistQuery: ArtistQuery = ArtistQuery()
+    var albums: [AlbumInfo] = []
+    var albumQuery: AlbumQuery = AlbumQuery()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        artists = artistQuery.get()
+        albums = albumQuery.get()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table View
@@ -32,19 +30,14 @@ class ArtistViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artists.count
+        return albums.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = artists[indexPath.row].artistTitle
-//        cell.detailTextLabel?.text = String(playlists[indexPath.row].songsCount)+" Songs"
+        cell.textLabel?.text = albums[indexPath.row].albumTitle
+        cell.detailTextLabel?.text = albums[indexPath.row].albumArtist
         
         return cell
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
-    }
 }
-
