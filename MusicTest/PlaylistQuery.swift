@@ -54,19 +54,30 @@ class PlaylistQuery {
     }
     
 //    func getPlaylistSongs(playlist: MPMediaPlaylist) {
-    func getPlaylistSongs(playlist: MPMediaItemCollection) {
+    func getPlaylistSongs(playlist: MPMediaItemCollection) -> [SongInfo] {
 //        var items: [MPMediaItem] = playlist.items
+        
+        var songs: [SongInfo] = []
+        
         let items = playlist.items
         
         var title: String?
         var artist: String?
+        var album: String?
+        var duration: NSTimeInterval?
         
         for song in items {
             title = song.title
             artist = song.artist
+            album = song.albumTitle
+            duration = song.playbackDuration
             
-            print("song title: ", title, " artist: ", artist)
+            print("song title: ", title, " artist: ", artist, "duration: ", duration)
+            let songInfo: SongInfo = SongInfo(songTitle: title, songArtist: artist, songAlbum: album)
+            songs.append(songInfo)
         }
+        
+        return songs
     }
     
 //    func getArtworks(forPlaylist playlist: MPMediaPlaylist) -> UIImage {

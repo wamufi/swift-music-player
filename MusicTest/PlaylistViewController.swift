@@ -12,6 +12,7 @@ class PlaylistViewController: UITableViewController {
     
     var playlists: [PlaylistInfo] = []
     var playlistQuery: PlaylistQuery = PlaylistQuery()
+    var playlistSongs: [SongInfo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,17 @@ class PlaylistViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+//            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+            let controller = segue.destinationViewController as! DetailViewController
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            controller.songs = playlistSongs
+        }
     }
 
     // MARK: - Table View
@@ -44,7 +56,10 @@ class PlaylistViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        playlistQuery.getPlaylistSongs(playlists[indexPath.row].playlistItemCollection)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        playlistSongs = playlistQuery.getPlaylistSongs(playlists[indexPath.row].playlistItemCollection)
+        performSegueWithIdentifier("showDetail", sender: indexPath)
     }
 }
 

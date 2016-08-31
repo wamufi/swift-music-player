@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900F30731D76F0AF00F16CA9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900F30721D76F0AF00F16CA9 /* DetailViewController.swift */; };
 		90963A091D58D01A00503249 /* ArtistQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90963A081D58D01A00503249 /* ArtistQuery.swift */; };
 		90963A0B1D58D19E00503249 /* ArtistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90963A0A1D58D19E00503249 /* ArtistViewController.swift */; };
 		90B67E691D4C9A9E0024CF35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B67E681D4C9A9E0024CF35 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		900F30721D76F0AF00F16CA9 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		90963A081D58D01A00503249 /* ArtistQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistQuery.swift; sourceTree = "<group>"; };
 		90963A0A1D58D19E00503249 /* ArtistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewController.swift; sourceTree = "<group>"; };
 		90B67E651D4C9A9E0024CF35 /* MusicTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 				90EA20A41D700820008FD342 /* AlbumQuery.swift */,
 				90EA20A61D700938008FD342 /* AlbumViewController.swift */,
 				90EA20A81D701222008FD342 /* SongQuery.swift */,
+				900F30721D76F0AF00F16CA9 /* DetailViewController.swift */,
 				90B67E6C1D4C9A9E0024CF35 /* Main.storyboard */,
 				90B67E6F1D4C9A9E0024CF35 /* Assets.xcassets */,
 				90B67E711D4C9A9E0024CF35 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900F30731D76F0AF00F16CA9 /* DetailViewController.swift in Sources */,
 				90EA20A51D700820008FD342 /* AlbumQuery.swift in Sources */,
 				90B67E6B1D4C9A9E0024CF35 /* PlaylistViewController.swift in Sources */,
 				90963A091D58D01A00503249 /* ArtistQuery.swift in Sources */,
