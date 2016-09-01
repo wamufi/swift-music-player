@@ -12,15 +12,25 @@ class AlbumViewController: UITableViewController {
     
     var albums: [AlbumInfo] = []
     var albumQuery: AlbumQuery = AlbumQuery()
+    var albumSongs: [SongInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        albums = albumQuery.get()
+        albums = albumQuery.getList()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Segues
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            let controller = segue.destinationViewController as! DetailViewController
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            controller.songs = albumSongs
+        }
     }
     
     // MARK: - Table View
@@ -39,5 +49,12 @@ class AlbumViewController: UITableViewController {
         cell.detailTextLabel?.text = albums[indexPath.row].albumArtist
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        albumSongs = albumQuery.getAlbumSongs(albums[indexPath.row].albumItemCollection)
+        performSegueWithIdentifier("showDetail", sender: self)
     }
 }

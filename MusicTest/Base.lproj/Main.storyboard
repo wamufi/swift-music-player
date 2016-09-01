@@ -165,6 +165,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="R56-e0-Auy"/>
+                    <connections>
+                        <segue destination="aQZ-nx-fQf" kind="show" identifier="showDetail" id="1Ra-ap-qCb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iet-hv-Mdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,4 +212,7 @@
             <point key="canvasLocation" x="2614" y="1278"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1Ra-ap-qCb"/>
+    </inferredMetricsTieBreakers>
 </document>

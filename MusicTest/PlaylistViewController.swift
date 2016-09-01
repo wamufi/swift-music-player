@@ -59,7 +59,7 @@ class PlaylistViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         playlistSongs = playlistQuery.getPlaylistSongs(playlists[indexPath.row].playlistItemCollection)
-        performSegueWithIdentifier("showDetail", sender: indexPath)
+        performSegueWithIdentifier("showDetail", sender: self)
     }
 }
 

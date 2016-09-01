@@ -12,10 +12,11 @@ import MediaPlayer
 struct AlbumInfo {
     var albumTitle: String?
     var albumArtist: String?
+    var albumItemCollection: MPMediaItemCollection
 }
 
 class AlbumQuery {
-    func get() -> [AlbumInfo] {
+    func getList() -> [AlbumInfo] {
         var albums: [AlbumInfo] = []
         
         let query: MPMediaQuery = MPMediaQuery.albumsQuery()
@@ -28,10 +29,34 @@ class AlbumQuery {
             title = album.representativeItem?.albumTitle
             artist = album.representativeItem?.albumArtist
             
-            let albumInfo: AlbumInfo = AlbumInfo(albumTitle: title, albumArtist: artist)
+            let albumInfo: AlbumInfo = AlbumInfo(albumTitle: title, albumArtist: artist, albumItemCollection: album)
             albums.append(albumInfo)
         }
         
         return albums
+    }
+    
+    func getAlbumSongs(album: MPMediaItemCollection) -> [SongInfo] {
+        var songs: [SongInfo] = []
+        
+        let items = album.items
+        
+        var title: String?
+        var artist: String?
+        var album: String?
+        var duration: NSTimeInterval?
+        var releaseDate: String?
+        
+        for song in items {
+            title = song.title
+            artist = song.artist
+            album = song.albumTitle
+            duration = song.playbackDuration
+            
+            let songInfo: SongInfo = SongInfo(songTitle: title, songArtist: artist, songAlbum: album)
+            songs.append(songInfo)
+        }
+        
+        return songs
     }
 }
