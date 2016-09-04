@@ -12,17 +12,28 @@ class ArtistViewController: UITableViewController {
     
     var artists: [ArtistInfo] = []
     var artistQuery: ArtistQuery = ArtistQuery()
+    var artistAlbums: [AlbumInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        artists = artistQuery.get()
+        artists = artistQuery.getList()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showAlbum" {
+            let controller = segue.destinationViewController as! DetailViewController
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            controller.albums = artistAlbums
+        }
     }
     
     // MARK: - Table View
@@ -44,7 +55,10 @@ class ArtistViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        artistAlbums = artistQuery.getArtistAlbms(artists[indexPath.row].artistItemCollection)
+        performSegueWithIdentifier("showAlbum", sender: self)
     }
 }
 

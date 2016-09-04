@@ -20,6 +20,8 @@ class AlbumQuery {
         var albums: [AlbumInfo] = []
         
         let query: MPMediaQuery = MPMediaQuery.albumsQuery()
+//        query.groupingType = .AlbumArtist
+        query.groupingType = .Album
         let items: [MPMediaItemCollection] = query.collections!
         
         var title: String?

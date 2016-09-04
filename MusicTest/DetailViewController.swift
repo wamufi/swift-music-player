@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UITableViewController {
     
     var songs: [SongInfo] = []
+    var albums: [AlbumInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +28,27 @@ class DetailViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
+        var count: Int = 0
+        
+        if (songs.count > 0) {
+            count = songs.count
+        } else if (albums.count > 0) {
+            count = albums.count
+        }
+        
+        return count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = songs[indexPath.row].songTitle
-        cell.detailTextLabel?.text = songs[indexPath.row].songArtist
+        
+        if (songs.count > 0) {
+            cell.textLabel?.text = songs[indexPath.row].songTitle
+            cell.detailTextLabel?.text = songs[indexPath.row].songArtist
+        } else if (albums.count > 0) {
+            cell.textLabel?.text = albums[indexPath.row].albumTitle
+            cell.detailTextLabel?.text = albums[indexPath.row].albumArtist
+        }
         
         return cell
     }
