@@ -19,9 +19,9 @@ class AlbumQuery {
     func getList() -> [AlbumInfo] {
         var albums: [AlbumInfo] = []
         
-        let query: MPMediaQuery = MPMediaQuery.albumsQuery()
+        let query: MPMediaQuery = MPMediaQuery.albums()
 //        query.groupingType = .AlbumArtist
-        query.groupingType = .Album
+        query.groupingType = .album
         let items: [MPMediaItemCollection] = query.collections!
         
         var title: String?
@@ -38,7 +38,7 @@ class AlbumQuery {
         return albums
     }
     
-    func getAlbumSongs(album: MPMediaItemCollection) -> [SongInfo] {
+    func getAlbumSongs(_ album: MPMediaItemCollection) -> [SongInfo] {
         var songs: [SongInfo] = []
         
         let items = album.items
@@ -46,7 +46,7 @@ class AlbumQuery {
         var title: String?
         var artist: String?
         var album: String?
-        var duration: NSTimeInterval?
+        var duration: TimeInterval?
         var releaseDate: String?
         
         for song in items {

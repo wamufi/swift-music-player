@@ -23,11 +23,11 @@ class DetailViewController: UITableViewController {
     
     // MARK: - Table View
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count: Int = 0
         
         if (songs.count > 0) {
@@ -39,15 +39,15 @@ class DetailViewController: UITableViewController {
         return count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
         
         if (songs.count > 0) {
-            cell.textLabel?.text = songs[indexPath.row].songTitle
-            cell.detailTextLabel?.text = songs[indexPath.row].songArtist
+            cell.textLabel?.text = songs[(indexPath as NSIndexPath).row].songTitle
+            cell.detailTextLabel?.text = songs[(indexPath as NSIndexPath).row].songArtist
         } else if (albums.count > 0) {
-            cell.textLabel?.text = albums[indexPath.row].albumTitle
-            cell.detailTextLabel?.text = albums[indexPath.row].albumArtist
+            cell.textLabel?.text = albums[(indexPath as NSIndexPath).row].albumTitle
+            cell.detailTextLabel?.text = albums[(indexPath as NSIndexPath).row].albumArtist
         }
         
         return cell

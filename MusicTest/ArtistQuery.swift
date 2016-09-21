@@ -20,8 +20,8 @@ class ArtistQuery {
     func getList() -> [ArtistInfo] {
         var artists: [ArtistInfo] = []
         
-        let query: MPMediaQuery = MPMediaQuery.artistsQuery()
-        query.groupingType = .AlbumArtist
+        let query: MPMediaQuery = MPMediaQuery.artists()
+        query.groupingType = .albumArtist
         let items: [MPMediaItemCollection] = query.collections!
         
         var title: String?
@@ -48,13 +48,13 @@ class ArtistQuery {
         return artists
     }
     
-    func getArtistAlbms(artist: MPMediaItemCollection) -> [AlbumInfo] {
+    func getArtistAlbms(_ artist: MPMediaItemCollection) -> [AlbumInfo] {
         var albums: [AlbumInfo] = []
         
         let filterPredicate = MPMediaPropertyPredicate.init(value: artist.representativeItem?.artist, forProperty: MPMediaItemPropertyArtist)
         let query = MPMediaQuery()
         query.addFilterPredicate(filterPredicate)
-        query.groupingType = .Album
+        query.groupingType = .album
 
         let items = query.collections!
     

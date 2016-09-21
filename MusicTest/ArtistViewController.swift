@@ -28,9 +28,9 @@ class ArtistViewController: UITableViewController {
     
     // MARK: - Segues
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAlbum" {
-            let controller = segue.destinationViewController as! DetailViewController
+            let controller = segue.destination as! DetailViewController
             controller.navigationItem.leftItemsSupplementBackButton = true
             controller.albums = artistAlbums
         }
@@ -38,27 +38,27 @@ class ArtistViewController: UITableViewController {
     
     // MARK: - Table View
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return artists.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = artists[indexPath.row].artistTitle
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+        cell.textLabel?.text = artists[(indexPath as NSIndexPath).row].artistTitle
 //        cell.detailTextLabel?.text = String(playlists[indexPath.row].songsCount)+" Songs"
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        artistAlbums = artistQuery.getArtistAlbms(artists[indexPath.row].artistItemCollection)
-        performSegueWithIdentifier("showAlbum", sender: self)
+        artistAlbums = artistQuery.getArtistAlbms(artists[(indexPath as NSIndexPath).row].artistItemCollection)
+        performSegue(withIdentifier: "showAlbum", sender: self)
     }
 }
 

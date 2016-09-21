@@ -21,9 +21,9 @@ class PlaylistQuery {
 //    func getPlaylist() {
         var playlists: [PlaylistInfo] = []
         
-        let query: MPMediaQuery = MPMediaQuery.playlistsQuery()
+        let query: MPMediaQuery = MPMediaQuery.playlists()
 //        let playlistItems: [MPMediaItemCollection] = playlistQuery.collections! as [MPMediaItemCollection]
-        query.groupingType = .Playlist
+        query.groupingType = .playlist
         let items = query.collections!
         
         var title: String = ""
@@ -31,7 +31,7 @@ class PlaylistQuery {
         
 //        for playlist in items {
         for playlist in items {
-            title = playlist.valueForProperty(MPMediaPlaylistPropertyName) as! String
+            title = playlist.value(forProperty: MPMediaPlaylistPropertyName) as! String
             count = playlist.items.count
             
             
@@ -54,7 +54,7 @@ class PlaylistQuery {
     }
     
 //    func getPlaylistSongs(playlist: MPMediaPlaylist) {
-    func getPlaylistSongs(playlist: MPMediaItemCollection) -> [SongInfo] {
+    func getPlaylistSongs(_ playlist: MPMediaItemCollection) -> [SongInfo] {
 //        var items: [MPMediaItem] = playlist.items
         
         var songs: [SongInfo] = []
@@ -64,7 +64,7 @@ class PlaylistQuery {
         var title: String?
         var artist: String?
         var album: String?
-        var duration: NSTimeInterval?
+        var duration: TimeInterval?
         
         for song in items {
             title = song.title

@@ -215,13 +215,16 @@
 					90B67E641D4C9A9E0024CF35 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2J5E4JD384;
+						LastSwiftMigration = 0800;
 					};
 					90B67E781D4C9A9E0024CF35 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 90B67E641D4C9A9E0024CF35;
 					};
 					90B67E831D4C9A9E0024CF35 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 90B67E641D4C9A9E0024CF35;
 					};
 				};
@@ -437,6 +440,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.genchin.MusicTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -451,6 +455,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.genchin.MusicTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -462,6 +467,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.genchin.MusicTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicTest.app/MusicTest";
 			};
 			name = Debug;
@@ -474,6 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.genchin.MusicTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicTest.app/MusicTest";
 			};
 			name = Release;
@@ -485,6 +492,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.genchin.MusicTestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MusicTest;
 			};
 			name = Debug;
@@ -496,6 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.genchin.MusicTestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MusicTest;
 			};
 			name = Release;

@@ -28,10 +28,10 @@ class PlaylistViewController: UITableViewController {
     
     // MARK: - Segues
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
 //            let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-            let controller = segue.destinationViewController as! DetailViewController
+            let controller = segue.destination as! DetailViewController
             controller.navigationItem.leftItemsSupplementBackButton = true
             controller.songs = playlistSongs
         }
@@ -39,27 +39,27 @@ class PlaylistViewController: UITableViewController {
 
     // MARK: - Table View
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playlists.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = playlists[indexPath.row].playlistTitle
-        cell.detailTextLabel?.text = String(playlists[indexPath.row].songsCount)+" Songs"
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+        cell.textLabel?.text = playlists[(indexPath as NSIndexPath).row].playlistTitle
+        cell.detailTextLabel?.text = String(playlists[(indexPath as NSIndexPath).row].songsCount)+" Songs"
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        playlistSongs = playlistQuery.getPlaylistSongs(playlists[indexPath.row].playlistItemCollection)
-        performSegueWithIdentifier("showDetail", sender: self)
+        playlistSongs = playlistQuery.getPlaylistSongs(playlists[(indexPath as NSIndexPath).row].playlistItemCollection)
+        performSegue(withIdentifier: "showDetail", sender: self)
     }
 }
 
